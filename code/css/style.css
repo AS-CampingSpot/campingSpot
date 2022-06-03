@@ -2066,11 +2066,17 @@ select.form {
 	transition: all 200ms linear; 
 }
 .services-box {
-	position: relative;
+	position: absolute;
 	width: 100%;
 	display: block;
 }
 .services-box img{
+	width: 300px;
+	margin-top: -50px;
+	height: auto;
+	display: block;
+}
+.services-icon img{
 	width: 36px;
 	height: auto;
 	display: block;
@@ -2801,8 +2807,8 @@ figure.vimeo a img, figure.youtube a img {
 	border: 1px solid rgba(0,0,0,.1);
 }
 .services-box.restaurant img{
-	width: 42px;
-	height: 42px;
+	/*width: 42px;
+	height: 42px;*/
 	display: block;
 }
 .restaurant-box{
