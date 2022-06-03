@@ -133,7 +133,7 @@
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-10 col-sm-8 parallax-fade-top">
-						<div class="hero-text">Descubra o seu paraíso no nosso campo de campismo</div>
+						<div class="hero-text">Descubra o seu paraíso no nosso parque de campismo</div>
 					</div>
 					<div class="col-12 mt-3 mb-5 parallax-fade-top">
 						<div class="hero-stars">
@@ -154,8 +154,8 @@
 												<div class="form-item">
 													<span class="fontawesome-calendar"></span>
 													<input class="input-sm" type="text" autocomplete="off"
-														id="start-date-1" name="start" placeholder="chech-in date"
-														data-date-format="DD, MM d" />
+														id="start-date-1" name="start" placeholder="check-in date"
+														data-date-format="DD, MM d" onchange="getInfo()"/>
 													<span class="date-text date-depart"></span>
 												</div>
 											</div>
@@ -164,7 +164,7 @@
 													<span class="fontawesome-calendar"></span>
 													<input class="input-sm" type="text" autocomplete="off"
 														id="end-date-1" name="end" placeholder="check-out date"
-														data-date-format="DD, MM d" />
+														data-date-format="DD, MM d" onchange="getInfo()" />
 													<span class="date-text date-return"></span>
 												</div>
 											</div>
@@ -174,7 +174,7 @@
 								<div class="col-5 no-mob">
 									<div class="row">
 										<div class="col-6">
-											<select name="adults" class="wide">
+											<select name="adults" class="wide" id="type" onchange="getInfo()">
 												<option data-display="Seleciona tipo"></option>
 												<option value="1">Tenda</option>
 												<option value="2">Caravana</option>
@@ -182,8 +182,8 @@
 											</select>
 										</div>
 										<div class="col-6">
-											<select name="children" class="wide">
-												<option data-display="quntidade de pessoas"></option>
+											<select name="children" class="wide" id="nPeople" onchange="getInfo()">
+												<option data-display="quantidade de pessoas"></option>
 												<option value="1">1</option>
 												<option value="2">2</option>
 												<option value="3">3</option>
@@ -194,7 +194,7 @@
 									</div>
 								</div>
 								<div class="col-6  col-sm-4 col-lg-2">
-									<a class="booking-button" href="search.html">book now</a>
+									<a class="booking-button" id = "book" onclick="book()">book now</a>
 								</div>
 							</div>
 						</div>
@@ -591,6 +591,7 @@
 	<script src="js/flip-slider.js"></script>
 	<script src="js/reveal-home.js"></script>
 	<script src="js/custom.js"></script>
+	<script src="js/sistema_reservas.js"></script>
 	<!-- End Document
 ================================================== -->
 </body>
