@@ -2020,7 +2020,7 @@ select.form {
 	height: auto;
 	float: left;
 	margin-right: 20px;
-	opacity: 0.5;
+	opacity: 0.6;
 }
 .room-icons a{
 	display: inline-block;
@@ -3664,6 +3664,25 @@ figure.vimeo a img, figure.youtube a img {
 .social-footer-bottom:hover{
 	text-decoration: none;
 }
+
+.notify {
+	position: absolute;
+	top: -4px;
+	right: -10px;
+	display: inline-block;
+	padding: 0.25em 0.6em;
+	font-size: 12px;
+	line-height: 1;
+	text-align: center;
+	border-radius: 3rem;
+	color: #fff;
+	background-color: #fa3434;
+  }
+  .btn-default{
+	background-color:#82b440 ; 
+	color: white;
+	
+  }
 
 /* #Media
 ================================================== */
