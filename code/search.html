@@ -314,7 +314,7 @@
 								<div class="col-12">
 									<div class="row">
 										<div class="col-12 pt-4">
-											<select name="adults" class="wide">
+											<select name="adults" class="wide" id="type" onchange="getInfo()">
 												<option data-display="seleciona tipo"></option>
 												<option value="1">tenda</option>
 												<option value="2">caravana</option>
@@ -322,7 +322,7 @@
 											</select>
 										</div>
 										<div class="col-12 pt-4">
-											<select name="children" class="wide">
+											<select name="children" class="wide" id="nPeople" onchange="getInfo()">
 												<option data-display="seleciona quantidade de pessoas"></option>
 												<option value="1">1</option>
 												<option value="2">2</option>
@@ -416,7 +416,7 @@
 										
 									</ul><br>
 									<div class="">
-										<a class="booking-button" href="#">pesquisar disponibilidade</a>
+										<a class="booking-button" id="book" onclick="disponibilidade()">pesquisar disponibilidade</a>
 									</div>
 									</div>
 								</div>
@@ -483,6 +483,7 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/plugins.js"></script>
 	<script src="js/custom.js"></script>
+	<script src="js/sistema_reservas.js"></script>
 	<!-- End Document
 ================================================== -->
 </body>
