@@ -1,7 +1,7 @@
 var date_start = null;
 var date_end = null;
 var type = null;
-var n_people = null;
+var nPeople = null;
 
 const TENDA_LIMIT = 5; 
 const CARAVANA_LIMIT = 10;
@@ -12,57 +12,101 @@ function getInfo() {
     date_end = document.getElementById("end-date-1").value;
     type = document.getElementById("type").value;
     n_people = document.getElementById("nPeople").value;
+    localStorage.setItem("start-date-1",date_start)
+    localStorage.setItem("end-date-1",date_end)
+    localStorage.setItem("type", type)
+    localStorage.setItem("nPeople", n_people)
+}
+function getVagas (){
+   
+    var dias = getPeriodOfDays(localStorage.getItem("start-date-1"),localStorage.getItem("end-date-1"))
+    var min=null
+    if ( localStorage.getItem("type")==1) {
+        min = TENDA_LIMIT
+    }else if( localStorage.getItem("type")==2){
+        min = CARAVANA_LIMIT
+    }else if ( localStorage.getItem("type")==3){
+        min = CAMPING_RV_LIMIT
+    }
+    
+    for (let index = 0; index < dias.length; index++) {
+        var vagas = localStorage.getItem(dias[index]+"::"+ localStorage.getItem("type"))
+        
+        if(vagas<min){
+            min = vagas
+        }
+    }
+    var x = null;
+    if(localStorage.getItem("type")==1){
+        x = document.getElementById("tenda_vagas")
+        x.innerHTML = "Apenas tem " + min + " vagas"
+    }else if(localStorage.getItem("type")==2){
+        x = document.getElementById("caravana_vagas")
+        x.innerHTML = "Apenas tem " + min + " vagas"
+    }else if(localStorage.getItem("type")==3){
+        x = document.getElementById("camping-rv_vagas")
+        x.innerHTML = "Apenas tem " + min + " vagas"
+    }
 }
 
 function book(){
-    console.log("book")
-    const periodOfDays = getPeriodOfDays(date_start,date_end)
+    //console.log("book")
+    const periodOfDays = getPeriodOfDays(localStorage.getItem("start-date-1"),localStorage.getItem("end-date-1"))
     var check = false;
-    if(isAvaible(periodOfDays)){
+    if(isAvailable(periodOfDays)){
         for (let index = 0; index < periodOfDays.length; index++) {
-            var x = localStorage.getItem(periodOfDays[index]+"::"+type)
-            localStorage.setItem(periodOfDays[index]+"::"+type,x-n_people)
+            var x = localStorage.getItem(periodOfDays[index]+"::"+ localStorage.getItem("type"))
+            localStorage.setItem(periodOfDays[index]+"::"+ localStorage.getItem("type"),x- lolocalStorage.getItem("nPeople"))
         }
         check = true
     }
-    console.log(check)
-    var book = document.getElementById("book")
-    /*
-    if(check){
-        book.setAttribute("href","contact.html")
-    }else{
-        book.setAttribute("href","activity.html")
-    }
-    */
+    //console.log(check)
+    
 }
-
-function isAvaible(periodOfDays){
-    console.log("isAvailable")
+function disponibilidade (){
+    isAvailable(getPeriodOfDays(localStorage.getItem("start-date-1"),localStorage.getItem("end-date-1")))
+}
+function isAvailable(periodOfDays){
+    //console.log("isAvailable")
+    var available = true
     for (let index = 0; index < periodOfDays.length; index++) {
-        var x = localStorage.getItem(periodOfDays[index]+"::"+type)
+        var x = localStorage.getItem(periodOfDays[index]+"::"+ localStorage.getItem("type"))
         if(x == null){
-            if(type=="1"){
-                localStorage.setItem(periodOfDays[index]+"::"+type,TENDA_LIMIT);
-            }else if(type=="2"){
-                localStorage.setItem(periodOfDays[index]+"::"+type,CARAVANA_LIMIT);
-            }else if(type=="3"){
-                localStorage.setItem(periodOfDays[index]+"::"+type,CAMPING_RV_LIMIT);
+            if(localStorage.getItem("type")=="1"){
+                localStorage.setItem(periodOfDays[index]+"::"+localStorage.getItem("type"),TENDA_LIMIT);
+            }else if( localStorage.getItem("type")=="2"){
+                localStorage.setItem(periodOfDays[index]+"::"+localStorage.getItem("type"),CARAVANA_LIMIT);
+            }else if( localStorage.getItem("type")=="3"){
+                localStorage.setItem(periodOfDays[index]+"::"+localStorage.getItem("type"),CAMPING_RV_LIMIT);
             }
-            x = localStorage.getItem(periodOfDays[index]+"::"+type)
+            x = localStorage.getItem(periodOfDays[index]+"::"+localStorage.getItem("type"))
         }
-        if(x<n_people){
-            return false;
+        if(x < localStorage.getItem("nPeople")){
+            available=false
+        }
+        var book = document.getElementById("book")
+      console.log(localStorage.getItem("type"))
+        if(available){
+            if (localStorage.getItem("type")==1) {
+                book.setAttribute("href","search-tent.html")
+            }else if(localStorage.getItem("type")==2){
+                book.setAttribute("href","search-caravan.html")
+            }else if (localStorage.getItem("type")==3){
+                book.setAttribute("href","search-camping-rv.html")
+            }
+        }else{
+            //alert("Não há disponibiliadade para essa data");
+            localStorage.clear()
         }
     }
-    return true;
+    return available;
 }
 
 function getPeriodOfDays(date_s,date_e){
-    console.log("getPeriodOfDays")
+    //console.log("getPeriodOfDays")
     const array = [];
     array.push(date_s);
     while(date_s!=date_e){
-        console.log(date_s)
         date_s = incrementDay(date_s);
         array.push(date_s); 
     }
@@ -70,7 +114,7 @@ function getPeriodOfDays(date_s,date_e){
 }
 
 function incrementDay(date){
-    console.log("incrementDay")
+    //console.log("incrementDay")
     const values = date.split(".")
     var day = parseInt(values[1])
     var month = parseInt(values[0])

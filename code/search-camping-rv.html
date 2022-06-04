@@ -5,7 +5,7 @@
 <html class="no-js" lang="en">
 <!--<![endif]-->
 
-<head>
+<head onload="getVagas()">
 
 	<!-- Basic Page Needs
 	================================================== -->
@@ -59,7 +59,7 @@
 
 </head>
 
-<body>
+<body onload = "getVagas()">
 
 	<div class="loader">
 		<div class="loader__figure"></div>
@@ -197,7 +197,7 @@
 							<div class="row">
 								<div class="col-12">
 									<p>Diponibilidade:</p>
-									<span>apenas tem 1 RV diponível</span>
+									<span id="camping-rv_vagas"></span>
 								</div>
 								
 							
@@ -272,6 +272,7 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/plugins.js"></script>
 	<script src="js/custom.js"></script>
+	<script src="js/sistema_reservas.js"></script>
 	<!-- End Document
 ================================================== -->
 </body>
