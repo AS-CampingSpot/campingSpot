@@ -1,16 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]>
 <!-->
 <html class="no-js" lang="en">
 <!--<![endif]-->
 
-<head onload="getVagas()">
+<head>
 
 	<!-- Basic Page Needs
 	================================================== -->
 	<meta charset="utf-8">
-	<title>Pesquisar Camping RV</title>
+	<title>Cart | CampingSpot</title>
 	<meta name="description" content="Professional Creative Template" />
 	<meta name="author" content="IG Design">
 	<meta name="keywords"
@@ -59,7 +59,7 @@
 
 </head>
 
-<body onload = "getVagas()">
+<body onload="getVagas()">
 
 	<div class="loader">
 		<div class="loader__figure"></div>
@@ -97,7 +97,7 @@
 							<a href="cart" data-toggle="tooltip" data-placement="bottom" title="Carrinho">
 								<img src="img/shopping-cart.svg" class="rounded-circle border" alt="" srcset="">
 								<!--<i class="icon-lg rounded-circle border fa fa-shopping-cart"></i>-->
-								<span class="notify total-count">0</span>
+								<span class="notify">0</span>
 							</a>
 						</div>
 					</div>
@@ -143,84 +143,60 @@
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-12 parallax-fade-top">
-						<div class="hero-text">Resultado da pesquisa - RV</div>
+						<div class="hero-text">Carrinho - CampingSpot</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="section padding-top-bottom z-bigger" style="margin-top: -5%;">
-		<div class="section z-bigger">
-			<div class="container">
-				<div class="row">
-					<div class="w-12">
-						<div class="row">
-							<div class="col-lg-8" data-scroll-reveal="enter bottom move 50px over 0.7s after 0.2s">
-								<div class="room-box background-grey">
-									<div class="room-name">Camping RV</div>
-									<div class="room-per">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-									</div>
-									<img src="img/camping_rv_2-891x891.jpg" alt="">
-									<div class="room-box-in">
-										<h5 class="">Campismo de RV</h5>
-										<p class="mt-3">Nossos locais de RV possuem uma variedade de tamanhos,
-											formas e com diferentes comodidades, dependendo de suas necessidades.
-											Oferecemos conexões, TV via satélite, Wi-Fi e muitas atividades junto com o campo de
-											trailers.
-										</p> 
-										<a class="mt-1 btn btn-default disabled" href="#" role="button" aria-disabled="true">preço a partir de 90€ / noite</a>
-										<div class="room-icons mt-4 pt-4">
-											<img src="img/wifi.svg" alt="">
-											<img src="img/fire.png" alt="">
-											<img src="img/shower.png" alt="">
-											<img src="img/laundry-machine.png" alt="" srcset="">
-											<img src="img/paypal-logo.png" alt="" srcset="">
-											<img src="img/no-smoking.png" alt="">
-											<img src="" alt="">Tamanho: <span class="badge badge-success">10m<sup>2</sup></span></img>
-											<img src="" alt="">Guests: <span class="badge badge-success">6</span></img>
-										</div>
-										
-									</div>
-								</div>
-							</div>
-							
-						</div>
-					</div>
-					<div class="col-lg-4 order-first order-lg-last" style="margin-left :50%; position: absolute;">
-						<div class="section background-dark p-4">
-							<div class="row">
-								<div class="col-12">
-									<p>Diponibilidade:</p>
-									<span id="camping-rv_vagas"></span>
-								</div>
-								
-							
-						
-								<div class="col-12 col-md-6 col-lg-12 pt-5">
-									<br>
-									<div class="js-add-cart">
-										<a class="booking-button add-to-cart" href="#" id="addToCart">adicionar ao carrinho</a>
-									</div>
-									<hr>
-									<div class="js-clear-cart">
-										<a class="btn btn-gl btn-danger clear-cart" href="#" id="clearCart">limpar carrinho</a>
-									</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
+	<section class="section-content padding-y bg" style="min-height:84vh">
+        <div class="container">
+        
+            <div class="row">
+                <aside class="col-lg-9">
+                    <div class="mt-3 card">
+                        <article class="card-body">
+                            <!-- SMARTCART PLUGIN -->
+                            <div id="smartcart"></div>
+                        </article>
+                    </div>
+                </aside>
+                <aside class="col-lg-3">
+                    <div class="pt-3 sticky-top">
+                        <div class="card shadow mb-4">
+                            <div class="card-body pb-2">
+                                <div class="form-group">
+                                    <label class="mb-3">Tem um cupão de desconto?</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="coupon" placeholder="Código do cupão">
+                                        <span class="input-group-append"> 
+                                            <button class="btn btn-primary">Aplicar</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <dl class="dlist-align">
+                                    <dt class="h4">Total:</dt>
+                                    <dd class="h4 font-weight-bolder text-right sc-cart-subtotal"></dd>
+                                </dl>
+                                <hr class="mb-4">
+                                
+                                <a href="buy" class="btn btn-light btn-block">Continuar a comprar</a>
+                                <button class="btn btn-danger btn-block sc-cart-clear" type="button">Limpar carrinho</button>
+                                <a class="sc-cart-checkout" href="checkout"><button class="btn btn-primary btn-block mt-2 sc-cart-checkout" type="button">Checkout <i class="fas fa-clipboard-check ml-1"></i></button></a>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        
+        </div> <!-- container .//  -->
+    </section>
 
 
 	<div class="section padding-top-bottom-small background-black over-hide footer">
@@ -277,9 +253,18 @@
 	<script src="js/plugins.js"></script>
 	<script src="js/custom.js"></script>
 	<script src="js/sistema_reservas.js"></script>
-	<script src="js/script.js"></script>
+    <script src="js/smart-cart.js"></script>
 	<!-- End Document
 ================================================== -->
+<script>
+    $(document).ready(function(){
+        $('#smartcart').smartCart();
+    });
+
+    $(".sc-cart-clear").click(function(){
+        $('#smartcart').smartCart('clear');
+    });
+</script>
 </body>
 
 </html>

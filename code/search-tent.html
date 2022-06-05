@@ -97,7 +97,7 @@
 							<a href="cart" data-toggle="tooltip" data-placement="bottom" title="Carrinho">
 								<img src="img/shopping-cart.svg" class="rounded-circle border" alt="" srcset="">
 								<!--<i class="icon-lg rounded-circle border fa fa-shopping-cart"></i>-->
-								<span class="notify">0</span>
+								<span class="notify total-count">0</span>
 							</a>
 						</div>
 					</div>
@@ -150,7 +150,7 @@
 		</div>
 	</div>
 
-	<div class="section padding-top-bottom z-bigger">
+	<div class="section padding-top-bottom z-bigger" style="margin-top: -5%;">
 		<div class="section z-bigger">
 			<div class="container">
 				<div class="row">
@@ -207,8 +207,12 @@
 						
 								<div class="col-12 col-md-6 col-lg-12 pt-5">
 									<br>
-									<div class="">
-										<a class="booking-button" href="#">adicionar ao carrinho</a>
+									<div class="js-add-cart">
+										<a class="booking-button add-to-cart" href="#" id="addToCart">adicionar ao carrinho</a>
+									</div>
+									<hr>
+									<div class="js-clear-cart">
+										<a class="btn btn-gl btn-danger clear-cart" href="#" id="clearCart">limpar carrinho</a>
 									</div>
 									</div>
 								</div>
@@ -276,6 +280,7 @@
 	<script src="js/plugins.js"></script>
 	<script src="js/custom.js"></script>
 	<script src="js/sistema_reservas.js"></script>
+	<script src="js/script.js"></script>
 	<!-- End Document
 ================================================== -->
 </body>
