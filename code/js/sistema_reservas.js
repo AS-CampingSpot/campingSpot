@@ -55,6 +55,7 @@ function getVagas (){
 }
 
 function book(){
+    console.log("book")
         const periodOfDays = getPeriodOfDays(localStorage.getItem("start-date-1"),localStorage.getItem("end-date-1"))
         for (let index = 0; index < periodOfDays.length; index++) {
             var x = localStorage.getItem(periodOfDays[index]+"::"+ localStorage.getItem("type"))
@@ -122,10 +123,13 @@ function isAvailable(periodOfDays){
             }
         }else{
             alert("Não há vagas para a data desejada")
+            break;
+            }
         }
-    }
     return available;
-}
+    }
+    
+
 
 function getPeriodOfDays(date_s,date_e){
     //console.log("getPeriodOfDays")

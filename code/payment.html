@@ -156,28 +156,31 @@
 					<tr><td class = "coluna1">Preço Total :</td><td id = "precototal" class = "coluna2" >teste</td></tr>
 					</table>
 					<div class="titulos" >Suas Informações </div>
+					<form action="index.html"><
 						<div class="formulario">
-						<input placeholder="  Primeiro Nome" class="form_input"/>
-						<input placeholder="  Último Nome" class="form_input"/>
+						<input  type="text" placeholder="  Primeiro Nome"  class="form_input"required/>
+						<input type="text" placeholder="  Último Nome" class="form_input"required/>
 						<br />
-						<input placeholder="  Email" class="form_input"/>
-						<input placeholder="  Telemóvel" class="form_input"/>
-					</div>
+						<input  type="text" placeholder="  Email" class="form_input"required/>
+						<input  type="text" placeholder="  Telemóvel" class="form_input"required/>
+						</div>
 					<div class="titulos" >Método de pagamento </div>
 						<br>
 						<div class="pagamento">
-							<form action="/action_page.php">
-								  <input type="radio" id="paypal" name="fav_language" value="PAYPAL">
-								  <label for="paypal">Paypal</label><br>
-								  <input type="radio" id="mbway" name="fav_language" value="MBWAY">
-								  <label for="mbway">MBWay</label><br>
-								  <input type="radio" id="multibanco" name="fav_language" value="MULTIBANCO">
-								  <label for="multibanco">Multibanco</label><br><br>
-							</form> 
+							<!-- <form action="/action_page.php"> -->
+								<input required type="radio" id="paypal" name="fav_language" value="PAYPAL">
+								<label  for="paypal">Paypal</label><br>
+								<input  type="radio" id="mbway" name="fav_language" value="MBWAY">
+								<label for="mbway">MBWay</label><br>
+								<input  type="radio" id="multibanco" name="fav_language" value="MULTIBANCO">
+								<label for="multibanco">Multibanco</label><br><br>
+							<!-- </form>  -->
+							
 						</div >
 					</div >
-					<a class="button button5" id="butao_de_pagar" onclick="book()">Pagar</a>
-                    </div>
+					<input type="submit" class="button button5" id="butao_de_pagar" value="Pagar" onclick="book()"/>
+                    </form>
+				</div>
                 </aside>
                 <!--
 					<aside class="col-lg-3">
