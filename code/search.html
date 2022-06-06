@@ -59,7 +59,7 @@
 
 </head>
 
-<body>
+<body onload()="">
 
 	<div class="loader">
 		<div class="loader__figure"></div>
@@ -92,13 +92,6 @@
 						</div>
 						<div class="lang-wrap">
 							<img src="img/user.svg" alt="" srcset="">
-						</div>
-						<div class="lang-wrap">
-							<a href="cart" data-toggle="tooltip" data-placement="bottom" title="Carrinho">
-								<img src="img/shopping-cart.svg" class="rounded-circle border" alt="" srcset="">
-								<!--<i class="icon-lg rounded-circle border fa fa-shopping-cart"></i>-->
-								<span class="notify">0</span>
-							</a>
 						</div>
 					</div>
 				</div>
@@ -143,7 +136,6 @@
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-12 parallax-fade-top">
-						<div class="hero-text">Pesquisar</div>
 					</div>
 				</div>
 			</div>
@@ -294,8 +286,8 @@
 												<div class="form-item">
 													<span class="fontawesome-calendar"></span>
 													<input class="input-sm" type="text" autocomplete="off"
-														id="start-date-1" name="start" placeholder="chech-in date"
-														data-date-format="DD, MM d" />
+														id="start-date-1" name="start" placeholder="check-in date"
+														data-date-format="DD, MM d" onchange="getInfo()"/>
 													<span class="date-text date-depart"></span>
 												</div>
 											</div>
@@ -304,7 +296,7 @@
 													<span class="fontawesome-calendar"></span>
 													<input class="input-sm" type="text" autocomplete="off"
 														id="end-date-1" name="end" placeholder="check-out date"
-														data-date-format="DD, MM d" />
+														data-date-format="DD, MM d" onchange="getInfo()"/>
 													<span class="date-text date-return"></span>
 												</div>
 											</div>
@@ -323,7 +315,7 @@
 										</div>
 										<div class="col-12 pt-4">
 											<select name="children" class="wide" id="nPeople" onchange="getInfo()">
-												<option data-display="seleciona quantidade de pessoas"></option>
+												<option data-display="Quantidade"></option>
 												<option value="1">1</option>
 												<option value="2">2</option>
 												<option value="3">3</option>

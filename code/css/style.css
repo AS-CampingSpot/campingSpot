@@ -3820,6 +3820,73 @@ figure.vimeo a img, figure.youtube a img {
 		font-size: 11px;
 	}	
 }
+table{
+border: solid black 1px cu;
+margin-top: 40px;
+height: 20px;
+margin-left: 20%;
+}
+.coluna2{
+position: relative ;
+min-width: 650px;
+padding-right: 50px;
+padding-bottom: 10px;
+padding-top: 10px;
+text-align: center;
+font-size: 2em;
+border: solid black 0.5px;
+}
+.titulos{
+	margin-top: 40px;
+	font-size: 25px;
+	font-weight: bold;
+	margin-left: 10%;	
+}
+
+.coluna1{
+	background-color: rgb(192, 224, 163);
+	border : solid black 2px;
+	padding: 20px;
+	font-size: 20px;
+	font-weight: bold;
+}
+.button {
+	background-color: #04AA6D;
+	border: none;
+	color: white;
+	padding: 20px;
+	width: 130px;
+	height: fit-content;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 23px;
+	margin-left: 10%;
+	margin-bottom: 50px;
+	cursor: pointer;
+}
+  .button5 {border-radius: 12px;}
+.pagamento{
+	margin-left: 10%;
+	font-size: 20px;
+}
+.form_input {
+	position: relative;
+	width: 300px;
+	height: fit-content;
+	border: solid #2aa02a 2px;
+	border-radius: 20px;
+	margin-right: 0px;
+	margin-top: 0px ;
+	margin-bottom: 30px;
+	font-size: 20px;
+	margin-left: 15%;
+}
+.formulario{
+	position : relative;
+	margin-top: 40px;	
+	margin-left: 50px;
+}
 
 @media (max-width: 575px) {
 	.card-header .btn-link{

@@ -7,15 +7,20 @@ const TENDA_LIMIT = 5;
 const CARAVANA_LIMIT = 10;
 const CAMPING_RV_LIMIT = 10;
 
+const PRECO_TENT = 18
+const PRECO_CARAVANA = 50
+const PRECO_RV = 90
+
 function getInfo() {
+    //console.log("getInfo")
     date_start = document.getElementById("start-date-1").value;
     date_end = document.getElementById("end-date-1").value;
     type = document.getElementById("type").value;
-    n_people = document.getElementById("nPeople").value;
+    nPeople = document.getElementById("nPeople").value;
     localStorage.setItem("start-date-1",date_start)
     localStorage.setItem("end-date-1",date_end)
     localStorage.setItem("type", type)
-    localStorage.setItem("nPeople", n_people)
+    localStorage.setItem("nPeople", nPeople)
 }
 function getVagas (){
    
@@ -50,22 +55,42 @@ function getVagas (){
 }
 
 function book(){
-    //console.log("book")
-    const periodOfDays = getPeriodOfDays(localStorage.getItem("start-date-1"),localStorage.getItem("end-date-1"))
-    var check = false;
-    if(isAvailable(periodOfDays)){
+        const periodOfDays = getPeriodOfDays(localStorage.getItem("start-date-1"),localStorage.getItem("end-date-1"))
         for (let index = 0; index < periodOfDays.length; index++) {
             var x = localStorage.getItem(periodOfDays[index]+"::"+ localStorage.getItem("type"))
-            localStorage.setItem(periodOfDays[index]+"::"+ localStorage.getItem("type"),x- lolocalStorage.getItem("nPeople"))
+            localStorage.setItem(periodOfDays[index]+"::"+ localStorage.getItem("type"),x - localStorage.getItem("nPeople"))
         }
-        check = true
-    }
-    //console.log(check)
-    
+        var x = document.getElementById("butao_de_pagar")
+        x.setAttribute("href","index.html")
 }
 function disponibilidade (){
     isAvailable(getPeriodOfDays(localStorage.getItem("start-date-1"),localStorage.getItem("end-date-1")))
 }
+
+function completarTabela(){
+
+    var check_in = document.getElementById("check_in")
+    var check_out = document.getElementById("check_out")
+    var qtd = document.getElementById("qtd")
+    var precototal = document.getElementById("precototal")
+
+    var text = localStorage.getItem("start-date-1")
+    check_in.innerHTML = text
+    text = localStorage.getItem("end-date-1")
+    check_out.textContent = text
+    text = localStorage.getItem("nPeople")
+    qtd.innerHTML = text
+    
+    if(localStorage.getItem("type")=="1"){
+        text = parseInt(localStorage.getItem("nPeople"))*PRECO_TENT +" €"
+    }else if(localStorage.getItem("type")=="2"){
+        text = parseInt(localStorage.getItem("nPeople"))*PRECO_CARAVANA +" €"
+    }else if(localStorage.getItem("type")=="3"){
+        text = parseInt(localStorage.getItem("nPeople"))*PRECO_RV + " €"
+    }
+    precototal.innerHTML = text
+}
+
 function isAvailable(periodOfDays){
     //console.log("isAvailable")
     var available = true
@@ -81,11 +106,10 @@ function isAvailable(periodOfDays){
             }
             x = localStorage.getItem(periodOfDays[index]+"::"+localStorage.getItem("type"))
         }
-        if(x < localStorage.getItem("nPeople")){
+        if(parseInt(x) < parseInt(localStorage.getItem("nPeople"))){
             available=false
         }
         var book = document.getElementById("book")
-      console.log(localStorage.getItem("type"))
         if(available){
             if (localStorage.getItem("type")==1) {
                 book.setAttribute("href","search-tent.html")
@@ -95,8 +119,7 @@ function isAvailable(periodOfDays){
                 book.setAttribute("href","search-camping-rv.html")
             }
         }else{
-            //alert("Não há disponibiliadade para essa data");
-            localStorage.clear()
+            alert("Não há vagas para a data desejada")
         }
     }
     return available;
