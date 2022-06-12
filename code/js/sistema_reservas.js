@@ -55,6 +55,7 @@ function getVagas (){
 }
 
 function book(){
+    console.log("book")
         const periodOfDays = getPeriodOfDays(localStorage.getItem("start-date-1"),localStorage.getItem("end-date-1"))
         for (let index = 0; index < periodOfDays.length; index++) {
             var x = localStorage.getItem(periodOfDays[index]+"::"+ localStorage.getItem("type"))
@@ -75,9 +76,11 @@ function completarTabela(){
     var precototal = document.getElementById("precototal")
 
     var text = localStorage.getItem("start-date-1")
-    check_in.innerHTML = text
+    const array1 = text.split(".")
+    check_in.innerHTML = array1[1]+"/"+array1[0]+"/"+array1[2]
     text = localStorage.getItem("end-date-1")
-    check_out.textContent = text
+    const array2 = text.split(".")
+    check_out.innerHTML = array2[1]+"/"+array2[0]+"/"+array2[2]
     text = localStorage.getItem("nPeople")
     qtd.innerHTML = text
     
@@ -120,10 +123,13 @@ function isAvailable(periodOfDays){
             }
         }else{
             alert("Não há vagas para a data desejada")
+            break;
+            }
         }
-    }
     return available;
-}
+    }
+    
+
 
 function getPeriodOfDays(date_s,date_e){
     //console.log("getPeriodOfDays")
