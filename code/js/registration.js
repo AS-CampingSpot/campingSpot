@@ -7,7 +7,7 @@ $(document).ready(function(){
 
                 var accounts = new Array();
                 customerAccount = new Object();
-                producerAccount = new Object();
+              
                 
                 // Create demo customer account
                 customerAccount = {

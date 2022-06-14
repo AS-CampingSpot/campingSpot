@@ -1,12 +1,12 @@
 $(document).ready(function(){
 
-    if (window.location.search.indexOf('?type=') > -1){
+   /* if (window.location.search.indexOf('?type=') > -1){
         // If form data starts with '?type=', then the user came from registration page and his account is created and ready to be used to sign in
         $('.is-ready').show();
     } else if (window.location.search.indexOf('?email=') > -1){
         // If form data starts with '?email=', then the user came from login page and entered invalid login credentials
         $('#login #email, #login #password').addClass('is-invalid');
-    }
+    }*/
 
     $('#login').on('submit', function(e){
 
@@ -16,7 +16,6 @@ $(document).ready(function(){
 
                 var accounts = new Array();
                 customerAccount = new Object();
-                producerAccount = new Object();
                 
                 // Create demo customer account
                 customerAccount = {
