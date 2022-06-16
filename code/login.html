@@ -42,22 +42,22 @@
 									</p>
 								</div>
 			      	</div>
-							<form action="" class="signin-form" id="login">
+							<!--<form action="" class="signin-form" id="login" >-->
 			      		<div class="form-group mb-3">
 			      			<label class="label" for="name">Email</label>
-			      			<input type="text" id="email" name="email" class="form-control" placeholder="Email" id="email" required>
+			      			<input type="email" id="email" name="email" class="form-control" placeholder="Email"  required>
 			      		</div>
 		            <div class="form-group mb-3">
 		            	<label class="label" for="password">Palavra-Passe</label>
-		              <input type="password" id="password" name="password" class="form-control" placeholder="Palavra-Passe" id="password" required>
+		              <input type="password" id="password" name="password" class="form-control" placeholder="Palavra-Passe"  required>
 		            </div>
 		            <div class="form-group">
-		            	<button type="submit" id="submit" class="form-control btn btn-primary submit px-3">Iniciar Sessão</button>
+		            	<button type="submit" id="btn-submit" class="form-control btn btn-primary submit px-3" onclick="function()" >Iniciar Sessão</button>
 		            </div>
 		            <div class="form-group d-md-flex">
 		            	<div class="w-50 text-left">
 			            	<label class="checkbox-wrap checkbox-primary mb-0">Lembrar-me
-									  <input type="checkbox" checked>
+									  <input type="checkbox" id="rememberMe" checked>
 									  <span class="checkmark"></span>
 										</label>
 									</div>
@@ -65,7 +65,7 @@
 										<a href="#">Esqueceu Palarava-Passe?</a>
 									</div>
 		            </div>
-		          </form>
+		          <!--</form>-->
 		        </div>
 		      </div>
 				</div>
@@ -77,7 +77,8 @@
   <script src="js/popper.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/main.js"></script>
-  <script scr="js/login.js"></script>
+  <script src="js/tailwind.js"></script>
+  <script type="text/javascript" src="js/login.js"></script>
 
 
 	</body>

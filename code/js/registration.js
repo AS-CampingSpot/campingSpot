@@ -1,49 +1,36 @@
-$(document).ready(function(){
+const register_email = document.getElementById('email');
+const register_password = document.getElementById('password');
+const register_button = document.getElementById('btn-submit');
 
-    $('#registration').on('submit', function(e){
-        if(typeof(Storage) !== "undefined"){
-            // If no storage is detected, create and store both demo accounts by default
-            if (!localStorage.getItem('campingspot_accounts')){
+const cek_reg_email = localStorage.getItem('register_email')
+const cek_reg_password = localStorage.getItem('register_password')
+const cek_log_email = localStorage.getItem('login_email')
+const cek_log_password = localStorage.getItem('login_password')
 
-                var accounts = new Array();
-                customerAccount = new Object();
-              
-                
-                // Create demo customer account
-                customerAccount = {
-                    email: 'cliente@ua.pt',
-                    password: btoa('cliente'),		// Base64 encode
-                    type: 'cliente'
-                };
-                
-                accounts.push(customerAccount);
-                
-                // Store data (both demo accounts) on storage
-                localStorage.setItem('campingspot_accounts', JSON.stringify(accounts));
-            }
+if (cek_reg_email, cek_reg_password, cek_log_email, cek_log_password != null) {
+    window.location = 'account.html'
+}
 
-            // Get values from the registration form
-            var email = $("#registration input[name=email]").val();
-            var password = $("#registration input[name=password]").val();
-            var type = $("#registration input[name=type]:checked").val();
+register_button.addEventListener('click', function () {
 
-            // Get storage, append the new account created and save it again on storage
-            accounts = JSON.parse(localStorage.getItem("campingspot_accounts"));
-            
-            accounts.push(
-                {
-                    email: email,
-                    password: btoa(password),		// Base64 encode
-                    type: type
-                }
-            );
+    const valid_email = localStorage.getItem('register_email')
+    const valid_password = localStorage.getItem('register_password')
 
-            localStorage.setItem('campingspot_accounts', JSON.stringify(accounts));
+    if (register_email.value === valid_email || register_password.value === valid_password) {
+        alert('Sua conta foi ativada! Faça Login agora!!')
+        return false
+    }
 
-        } else{
-            // Browser does not support web storage
-            window.location.replace("error.html");
-        }
-        
-    });
-});
+    if (register_email.value, register_password.value === '') {
+        alert('Dados inválidos ❌')
+        localStorage.removeItem('register_email')
+        localStorage.removeItem('register_password')
+        return false
+    } else {
+        localStorage.setItem('register_email', register_email.value)
+        localStorage.setItem('register_password', register_password.value)
+        alert('Registo efetuado com sucesso ✅')
+        window.location = 'login.html'
+    }
+
+})

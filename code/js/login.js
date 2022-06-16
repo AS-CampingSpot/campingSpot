@@ -1,65 +1,37 @@
-$(document).ready(function(){
+const login_email = document.getElementById('email');
+const login_password = document.getElementById('password');
+const login_button = document.getElementById('btn-submit');
 
-   /* if (window.location.search.indexOf('?type=') > -1){
-        // If form data starts with '?type=', then the user came from registration page and his account is created and ready to be used to sign in
-        $('.is-ready').show();
-    } else if (window.location.search.indexOf('?email=') > -1){
-        // If form data starts with '?email=', then the user came from login page and entered invalid login credentials
-        $('#login #email, #login #password').addClass('is-invalid');
-    }*/
+const cek_reg_email = localStorage.getItem('register_email')
+const cek_reg_password = localStorage.getItem('register_password')
+const cek_log_email = localStorage.getItem('login_email')
+const cek_log_password = localStorage.getItem('login_password')
 
-    $('#login').on('submit', function(e){
+if (cek_reg_email, cek_reg_password, cek_log_email, cek_log_password != null) {
+    window.location = 'account.html'
+}
 
-        if(typeof(Storage) !== "undefined"){
-            // If no storage is detected, create and store both demo accounts by default
-            if (!localStorage.getItem('campingspot_accounts')){
+login_email.value = localStorage.getItem('register_email')
+login_password.value = localStorage.getItem('register_password')
 
-                var accounts = new Array();
-                customerAccount = new Object();
-                
-                // Create demo customer account
-                customerAccount = {
-                    email: 'as@ua.pt',
-                    password: btoa('cliente'),		// Base64 encode
-                    type: 'cliente'
-                };
-                
-                accounts.push(customerAccount);
-                
-                // Store data (both demo accounts) on storage
-                localStorage.setItem('campingspot_accounts', JSON.stringify(accounts));
-            }
+login_button.addEventListener('click', function () {
 
-            // Get all saved accounts on storage
-            accounts = JSON.parse(localStorage.getItem('campingspot_accounts'));
+    const valid_email = localStorage.getItem('register_email')
+    const valid_password = localStorage.getItem('register_password')
 
-            // Get values entered by the user on the login fields
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
-            
-            // Cycle through all accounts stored
-            accounts.forEach(function(object){
-                // Compares both email and password entered by the user with the stored ones
-                if(object.email == email && atob(object.password) == password){		// Base64 decode
+    if (login_email.value, login_password.value === '') {
+        alert('Dados inválidos ❌')
+        return false
+    }
 
-                    // Store session data on the storage item and remember that this account is logged in
-                    localStorage.setItem('campingspot_session', JSON.stringify(object));
+    if (login_email.value != valid_email || login_password.value != valid_password) {
+        alert('Sua conta não foi encontrada! Registrar agora!!')
+        return false
+    } else {
+        localStorage.setItem('login_email', login_email.value)
+        localStorage.setItem('login_password', login_password.value)
+        alert('Login efetuado com sucesso ✅')
+        window.location = 'account.html'
+    }
 
-                    // After a valid login, choose where to redirect the user, according to their account type
-                    if (object.type == 'cliente'){
-                        // A  account goes to index page
-                        $('#login').attr('action', 'index.html');
-                    } else{
-                        // A customer account stay to login page
-                        alert("Ooops! tu não estás registrado!");
-                    }
-                }
-            });
-
-        } else{
-            // Browser does not support web storage
-            window.location.replace("error.html");
-        }
-
-    });
-});
+})
