@@ -51,6 +51,7 @@ self.addEventListener('install', function(event){
 self.addEventListener('activate', e =>{
     self.clients.claim()
 })
+/*
 self.addEventListener('fetch', async e =>{
     const req = e.request
     const url = new URL(req.url)
@@ -79,4 +80,4 @@ async function networkAndCache(req){
         const cached = await cache.match(req)
         return cached
     }
-}
+}*/
