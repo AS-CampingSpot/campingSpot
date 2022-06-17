@@ -67,7 +67,7 @@ buttonInstall.addEventListener('click', async () => {
 
   // FETCH PROXY & CACHING
 // 1.) try get resource from cache else fetch and update cache else --> error
-self.addEventListener('fetch', function (e) {
+/*self.addEventListener('fetch', function (e) {
     console.log('network or cache: ' + e.request.url);
     e.respondWith(
       caches.match(e.request).then(function (r) {
@@ -80,7 +80,7 @@ self.addEventListener('fetch', function (e) {
         }).catch(function(err){console.log(err);});
       })
     );
-  });
+  });*/
 
 /*
 self.addEventListener('fetch', async e =>{
