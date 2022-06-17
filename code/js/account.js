@@ -30,7 +30,7 @@ logout_button.addEventListener('click', function () {
     localStorage.removeItem('login_email')
     localStorage.removeItem('login_password')
     window.location = 'login.html'
-})
+});
 
 delete_button.addEventListener('click', function () {
     localStorage.removeItem('register_name')
@@ -39,4 +39,4 @@ delete_button.addEventListener('click', function () {
     localStorage.removeItem('login_email')
     localStorage.removeItem('login_password')
     window.location = 'registration.html'
-})
+});

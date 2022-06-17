@@ -51,6 +51,25 @@ self.addEventListener('install', function(event){
 self.addEventListener('activate', e =>{
     self.clients.claim()
 });
+
+  // FETCH PROXY & CACHING
+// 1.) try get resource from cache else fetch and update cache else --> error
+self.addEventListener('fetch', function (e) {
+    console.log('network or cache: ' + e.request.url);
+    e.respondWith(
+      caches.match(e.request).then(function (r) {
+        return r || fetch(e.request).then(function (response) {
+          return caches.open(cacheName).then(function (cache) {
+            console.log('Caching new resource: ' + e.request.url);
+            cache.put(e.request, response.clone());
+            return response;
+          });
+        }).catch(function(err){console.log(err);});
+      })
+    );
+  });
+
+
 buttonInstall.addEventListener('click', async () => {
     // Hide the app provided install promotion
     hideInstallPromotion();
@@ -65,23 +84,7 @@ buttonInstall.addEventListener('click', async () => {
   });
 
 
-  // FETCH PROXY & CACHING
-// 1.) try get resource from cache else fetch and update cache else --> error
-/*self.addEventListener('fetch', function (e) {
-    console.log('network or cache: ' + e.request.url);
-    e.respondWith(
-      caches.match(e.request).then(function (r) {
-        return r || fetch(e.request).then(function (response) {
-          return caches.open(cacheName).then(function (cache) {
-            console.log('Caching new resource: ' + e.request.url);
-            cache.put(e.request, response.clone());
-            return response;
-          });
-        }).catch(function(err){console.log(err);});
-      })
-    );
-  });*/
-
+  
 /*
 self.addEventListener('fetch', async e =>{
     const req = e.request
@@ -113,3 +116,5 @@ async function networkAndCache(req){
         return cached
     }
 }*/
+
+
