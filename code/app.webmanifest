@@ -18,6 +18,6 @@
     "start_url": "./index.html",
     "display": "fullscreen",
     "theme_color": "#6dc234",
-    "background_color": "#B12A34",
+    "background_color": "#6dc234",
     "prefer_related_applications": true
   }

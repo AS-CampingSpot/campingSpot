@@ -1,5 +1,5 @@
 /**/ 
-const cacheName = 'campingspot-cache'
+/*const cacheName = 'campingspot-cache'
 
 self.addEventListener('install', function(event){
     event.waitUntil(
@@ -81,7 +81,7 @@ buttonInstall.addEventListener('click', async () => {
     console.log(`User response to the install prompt: ${outcome}`);
     // We've used the prompt, and can't use it again, throw it away
     deferredPrompt = null;
-  });
+  });*/
 
 
   

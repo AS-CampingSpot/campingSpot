@@ -8,7 +8,7 @@ const user_login = document.getElementById('user-login')
 const logout_button = document.getElementById('logout-btn')
 const delete_button = document.getElementById('delete-btn')
 
-window.onload = function () {
+window.onunload = function () {
     if (login_email, login_password === null) {
         alert('Login first!!')
         window.location = 'login.html'
