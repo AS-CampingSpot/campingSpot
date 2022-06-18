@@ -76,7 +76,7 @@ p {
 
 abbr[title],
 abbr[data-original-title] {
-  text-decoration: underline;
+  /*text-decoration: underline;*/
   -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
   cursor: help;
@@ -154,10 +154,10 @@ samp {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 1em; }
 
-pre {
+/*pre {
   margin-top: 0;
   margin-bottom: 1rem;
-  overflow: auto; }
+  overflow: auto; }*/
 
 figure {
   margin: 0 0 1rem; }
@@ -432,6 +432,10 @@ kbd {
     font-weight: 700; }
 
 pre {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  overflow: auto;
+
   display: block;
   font-size: 87.5%;
   color: #212529; }

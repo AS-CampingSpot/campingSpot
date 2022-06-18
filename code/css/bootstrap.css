@@ -73,11 +73,12 @@ body {
   outline: 0 !important;
 }
 
-hr {
+/*hr {
+
   box-sizing: content-box;
   height: 0;
   overflow: visible;
-}
+}*/
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
@@ -91,7 +92,7 @@ p {
 
 abbr[title],
 abbr[data-original-title] {
-  text-decoration: underline;
+  /*text-decoration: underline;*/
   -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
   cursor: help;
@@ -422,6 +423,10 @@ h6, .h6 {
 }
 
 hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+
   margin-top: 1rem;
   margin-bottom: 1rem;
   border: 0;
