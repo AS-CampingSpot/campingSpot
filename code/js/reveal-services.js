@@ -117,7 +117,6 @@
             /** ======================================================= */
             var element3 = document.getElementById('rev-3'),
                 watcher3 = scrollMonitor.create(element3, -(element3.offsetHeight)),
-                duration3 = 1200,
                 rev3 = new RevealFx(element3, {
                     revealSettings: {
                         direction: 'tb',
