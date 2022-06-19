@@ -1,4 +1,4 @@
-name: Build CampingSpot Analysis
+name: Build CampingSpot Analysis 2022
 on:
   push:
     branches:
