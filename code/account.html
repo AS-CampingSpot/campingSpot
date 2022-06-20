@@ -58,9 +58,7 @@
 
 </head>
 
-
 <body>
-
 <!-- Nav and Logo
 	================================================== -->
 
@@ -100,6 +98,8 @@
 		</div>
 	</nav>
     <div><br></div>
+	<hr>
+
 
 <!-- ========================= SECTION CONTENT ========================= -->
 <section class="section-content padding-y bg">
@@ -111,10 +111,11 @@
 			<ul class="list-group">
 				<a class="list-group-item active" href="#" id="activeitem">Conta</a>
 				<a class="list-group-item" href="#">Encomendas em progresso</a>
-				<a class="list-group-item" href="#">Pedir ajudar</a>
+				<a class="list-group-item" href="index.html" target="_blank">Fazer outra reserva</a>
+				<a class="list-group-item" href="#">Pedir ajuda</a>
 				<a class="list-group-item" href="#">Definições</a>
 			</ul>
-		<button type="submit" class="btn btn-primary btn-block mt-4" id="logout-btn"><em class="fa fa-power-off"></em>  Terminar sessão</button>	
+			<button type="submit" class="btn btn-primary btn-block mt-4" id="logout-btn"><em class="fa fa-power-off"></em>  Terminar sessão</button>
 		</div>
 	</aside> <!-- col.// -->
 	<main class="col-md-9">
@@ -124,39 +125,38 @@
 				
 				<figure class="icontext">
 						<div class="icon">
-							<img class="rounded-circle img-sm border" width="50" height="50" src="img/user-avatar.jpg">
+							<img class="rounded-circle img-sm border"  width="50" height="50" src="img/user-avatar.jpg">
 						</div>
 						<div class="text">
-							<p class="font-weight-bolder">Bem-vindo</p>
 							<p class="my-2" id="user-login"></p>
 							<a href="#" class="btn-link">Alterar</a>
 						</div>
 				</figure>
-				<div class="float-right text-muted font-weight-bolder">Cliente #004</div>
+				<div class="float-right text-muted font-weight-bolder">CLIENTE #004</div>
 				<hr>
 
 				<article class="card-group">
 					<figure class="card bg">
 						<div class="p-3">
-							 <h5 class="card-title">3</h5>
+							 <h5 class="card-title">8</h5>
 							<span>encomendas ao todo</span>
 						</div>
 					</figure>
 					<figure class="card bg">
 						<div class="p-3">
-							 <h5 class="card-title">1</h5>
+							 <h5 class="card-title">3</h5>
 							<span>encomenda em progresso</span>
 						</div>
 					</figure>
 					<figure class="card bg">
 						<div class="p-3">
-							 <h5 class="card-title">2</h5>
+							 <h5 class="card-title">4</h5>
 							<span>encomendas finalizadas</span>
 						</div>
 					</figure>
 					<figure class="card bg">
 						<div class="p-3">
-							 <h5 class="card-title">0</h5>
+							 <h5 class="card-title">1</h5>
 							<span>encomendas reembolsadas</span>
 						</div>
 					</figure>
@@ -164,16 +164,16 @@
 				
 
 			</div> <!-- card-body .// -->
-              <hr>
 		</article> <!-- card.// -->
-		
+
+		<hr>
+
 	</main> <!-- col.// -->
-	
 </div>
-<button type="submit" class="btn-link float-right text-danger font-weight-bold" id="delete-btn">Eliminar conta definitavamente</button>
+  <button type="submit" class="btn btn-link float-right text-danger font-weight-bold" id="delete-btn">Eliminar conta definitavamente</button>
+
 </div> <!-- container .//  -->
 </section>
-
 <!-- ========================= SECTION CONTENT END// ========================= -->
 
 	<div class="section py-4 background-dark over-hide footer-bottom" style=" margin-top: 20%; ">
@@ -194,7 +194,6 @@
 
 	<div class="scroll-to-top"></div>
 
-
 	<!-- JAVASCRIPT
     ================================================== -->
 	<script src="js/jquery.min.js"></script>
@@ -203,12 +202,13 @@
 	<script src="js/plugins.js"></script>
 	<script src="js/flip-slider.js"></script>
 	<script src="js/reveal-home.js"></script>
-	<script src="js/tailwind.js"></script>
 	<script src="js/account.js"></script>
 	<script src="js/custom.js"></script>
 	<script src="js/sistema_reservas.js"></script>
 	<!-- End Document
 ================================================== -->
-</body>
 
+
+
+</body>
 </html>
