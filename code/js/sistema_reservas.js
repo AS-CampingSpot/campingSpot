@@ -11,6 +11,13 @@ const PRECO_TENT = 18
 const PRECO_CARAVANA = 50
 const PRECO_RV = 90
 
+const ANDAR_CAVALO = 5;
+const FUTEBOL = 3;
+const CAMINHADA = 1.5;
+const PESCA = 2;
+const BIKE = 5;
+const CANOAGEM = 10;
+
 function getInfo() {
     //console.log("getInfo")
     date_start = document.getElementById("start-date-1").value;
@@ -22,6 +29,60 @@ function getInfo() {
     localStorage.setItem("type", type)
     localStorage.setItem("nPeople", nPeople)
 }
+
+function getAtividades(){
+    var x = document.getElementById("atividades");
+    var text = "";
+    var cavalo = localStorage.getItem("atividade_cavalo");
+    var futebol = localStorage.getItem("atividade_futebol");
+    var caminhada = localStorage.getItem("atividade_caminhada");
+    var pesca = localStorage.getItem("atividade_pesca");
+    var bike = localStorage.getItem("atividade_bike");
+    var canoagem = localStorage.getItem("atividade_canoagem");
+    if(cavalo!=""){
+        text+=" Cavalo: "+ cavalo+"  ";
+    }
+    if(futebol!=""){
+        text+=" Futebol: "+ futebol+"  ";
+    }
+    if(caminhada!=""){
+        text+=" Caminhada: "+ caminhada+"  ";
+    }
+    if(pesca!=""){
+        text+=" Pesca: "+  pesca+"  ";
+    }
+    if(bike!=""){
+        text+="Bicicleta: "+ bike+"  ";
+    }
+    if(canoagem!=""){
+        text+="Canoagem: "+canoagem+"  ";
+    }
+    if(text==""){
+        text = "Nenhuma"
+    }
+    x.innerHTML = text;
+}
+
+function setAtividades(){
+    var cavalo = document.getElementById("cavalo").value;
+    console.log(cavalo)
+    var futebol = document.getElementById("futebol").value;
+    console.log(futebol)
+    var caminhada = document.getElementById("caminhada").value;
+    var pesca = document.getElementById("pesca").value;
+    var bike = document.getElementById("bike").value;
+    var canoagem = document.getElementById("caiaque").value;
+    console.log(canoagem);
+    localStorage.setItem("atividade_cavalo",cavalo);
+    localStorage.setItem("atividade_futebol",futebol);
+    localStorage.setItem("atividade_caminhada",caminhada);
+    localStorage.setItem("atividade_pesca",pesca);
+    localStorage.setItem("atividade_bike",bike);
+    localStorage.setItem("atividade_canoagem",canoagem);
+    var button = document.getElementById("pagamento");
+    button.setAttribute("href","payment.html")
+}
+
 function getVagas (){
    
     var dias = getPeriodOfDays(localStorage.getItem("start-date-1"),localStorage.getItem("end-date-1"))
@@ -81,16 +142,49 @@ function completarTabela(){
     text = localStorage.getItem("end-date-1")
     const array2 = text.split(".")
     check_out.innerHTML = array2[1]+"/"+array2[0]+"/"+array2[2]
-    text = localStorage.getItem("nPeople")
-    qtd.innerHTML = text
+    switch (localStorage.getItem("type")) {
+        case "1":
+           text = "Tenda: " 
+         break; 
+        case "2":
+            text = "Caravana: "    
+        break;
+        case "3":
+            text = "Camping RV: " 
+        break;
     
-    if(localStorage.getItem("type")=="1"){
-        text = parseInt(localStorage.getItem("nPeople"))*PRECO_TENT +" €"
-    }else if(localStorage.getItem("type")=="2"){
-        text = parseInt(localStorage.getItem("nPeople"))*PRECO_CARAVANA +" €"
-    }else if(localStorage.getItem("type")=="3"){
-        text = parseInt(localStorage.getItem("nPeople"))*PRECO_RV + " €"
+        default:
+            break;
     }
+    text += localStorage.getItem("nPeople")
+    qtd.innerHTML = text
+    if(localStorage.getItem("type")=="1"){
+        text =  parseInt(localStorage.getItem("nPeople"))*PRECO_TENT
+    }else if(localStorage.getItem("type")=="2"){
+        text = parseInt(localStorage.getItem("nPeople"))*PRECO_CARAVANA 
+    }else if(localStorage.getItem("type")=="3"){
+        text = parseInt(localStorage.getItem("nPeople"))*PRECO_RV 
+    }
+
+    if(localStorage.getItem("atividade_cavalo")!=""){
+        text+= parseInt(localStorage.getItem("atividade_cavalo")) *ANDAR_CAVALO;
+    }
+    if(localStorage.getItem("atividade_futebol")!=""){
+        text+= parseInt(localStorage.getItem("atividade_futebol")) *FUTEBOL;
+    }
+    if(localStorage.getItem("atividade_caminhada")!=""){
+        text+= parseInt(localStorage.getItem("atividade_caminhada")) *CAMINHADA;
+    }
+    if(localStorage.getItem("atividade_pesca")!=""){
+        text+= parseInt(localStorage.getItem("atividade_pesca")) *PESCA;
+    }
+    if(localStorage.getItem("atividade_bike")!=""){
+        text+= parseInt(localStorage.getItem("atividade_bike")) *BIKE;
+    }
+    if(localStorage.getItem("atividade_canoagem")!=""){
+        text+= parseInt(localStorage.getItem("atividade_canoagem")) *CANOAGEM;
+    }
+    text += " €"; 
     precototal.innerHTML = text
 }
 
